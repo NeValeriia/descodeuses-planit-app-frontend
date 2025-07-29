@@ -1,0 +1,11 @@
+/* importer tailwind dans le fichier global style.css
+qui va etre injecte dans tous les pages
+*/
+
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+
+
+/* Code injecte automatiquement apres l'installation material */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

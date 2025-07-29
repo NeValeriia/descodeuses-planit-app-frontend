@@ -1,0 +1,16 @@
+<form [formGroup]="form" style="margin-top:10px" (ngSubmit)="calculate()">
+  <input type="number" formControlName="a" style="margin-right:10px">
+  <select formControlName="operator"  style="margin-right:10px">
+    <option>+</option>
+    <option>-</option>
+    <option>*</option>
+    <option>/</option>
+  </select>
+  <input type="number" formControlName="b" style="margin-right:10px">
+  <button type="submit" style="margin-right:10px">Calculer</button>
+
+  @if(resutlat) {
+    Result: <span>{{resutlat}}</span>
+  }
+
+</form>
