@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContactService {
-  private apiURL : string = 'http://localhost:8080/api/contact'
+  private apiURL : string = environment.apiUrl+'/api/action'
 
   constructor(private http: HttpClient) { }
 
