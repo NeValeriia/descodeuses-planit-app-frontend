@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl+'/api/action'; // URL de votre backend Spring
+  private apiUrl = environment.apiUrl+'/auth/login'; // URL de votre backend Spring
 
   constructor(private http: HttpClient) {}
 

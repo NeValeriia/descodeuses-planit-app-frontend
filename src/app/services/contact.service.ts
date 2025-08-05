@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ContactService {
-  private apiURL : string = environment.apiUrl+'/api/action'
+  private apiURL : string = environment.apiUrl+'/api/contact'
 
   constructor(private http: HttpClient) { }
 
