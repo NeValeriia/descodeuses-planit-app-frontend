@@ -8,11 +8,11 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl+'/auth/login'; // URL de votre backend Spring
+  private apiUrl = environment.apiUrl+'/auth'; // URL de votre backend Spring
 
   constructor(private http: HttpClient) {}
 
-  login(credentials: { email: string, password: string }): Observable<any> {
+  login(credentials: { username: string, password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
       tap((response: any) => {
         // À la réception de la réponse, on stocke le token
