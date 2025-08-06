@@ -16,17 +16,17 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
       tap((response: any) => {
         // À la réception de la réponse, on stocke le token
-        localStorage.setItem('authToken', response.token);
+        sessionStorage.setItem('authToken', response.token);
       })
     );
   }
 
   logout(): void {
-    localStorage.removeItem('authToken');
+    sessionStorage.removeItem('authToken');
     // ... rediriger vers la page de login
   }
 
   getToken(): string | null {
-    return localStorage.getItem('authToken');
+    return sessionStorage.getItem('authToken');
   }
 }

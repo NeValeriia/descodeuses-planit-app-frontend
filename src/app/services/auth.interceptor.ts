@@ -11,7 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.authService.getToken();
 
-    if (token) {
+    if (token && !req.url.includes('auth/login')) {
       // Cloner la requête pour y ajouter le nouvel en-tête
       const cloned = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${token}`)
