@@ -16,10 +16,10 @@ import { Contact } from '../../models/contact.model';
   styleUrl: './todo-detail.component.css'
 })
 export class TodoDetailComponent implements OnInit {
-  currentFruit = new FormControl('');
-  selectedFruits : Contact[] = [];
-  allFruits: Contact[] = [];
-  filteredFruits: Contact[] = [];
+  currentUser = new FormControl('');
+  selectedUsers : Contact[] = [];
+  allUsers: Contact[] = [];
+  filteredUsers: Contact[] = [];
 
   todo! : Todo;
   formGroup! : FormGroup;
@@ -45,8 +45,8 @@ export class TodoDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.contactService.getAll().subscribe(contacts=>{
-      this.allFruits = contacts;
-      this.filteredFruits = [...this.allFruits];
+      this.allUsers = contacts;
+      this.filteredUsers = [...this.allUsers];
 
         //appel au service pour recuperer le todo
         this.todoService.getTodo(id).subscribe(todo=>{
@@ -64,7 +64,7 @@ export class TodoDetailComponent implements OnInit {
             }
           );
 
-          this.selectedFruits = this.allFruits.filter(c=>this.todo.memberIds.includes(c.id));
+          this.selectedUsers = this.allUsers.filter(c=>this.todo.memberIds.includes(c.id));
       });
     });
     //initaliser le formulaire avec les valeurs du todo
@@ -75,7 +75,7 @@ export class TodoDetailComponent implements OnInit {
     if(this.formGroup.value.dueDate)
       this.formGroup.value.dueDate = this.toLocalIsoString(this.formGroup.value.dueDate);
 
-    this.formGroup.get('memberIds')?.setValue(this.selectedFruits.map(c=>c.id));
+    this.formGroup.get('memberIds')?.setValue(this.selectedUsers.map(c=>c.id));
 
     //tester si formulaire valide
     if(this.formGroup.valid) {
@@ -102,21 +102,21 @@ export class TodoDetailComponent implements OnInit {
   }
 
   remove(fruit: number | null): void {
-    this.selectedFruits = this.selectedFruits.filter(f => f.id !== fruit);
+    this.selectedUsers = this.selectedUsers.filter(f => f.id !== fruit);
   }
 
-  onCurrentFruitChange(value: string) {
+  onCurrentUserChange(value: string) {
     const filterValue = value.toLowerCase();
-    this.filteredFruits = this.allFruits.filter(fruit =>
+    this.filteredUsers = this.allUsers.filter(fruit =>
       fruit.name?.toLowerCase().includes(filterValue)
     );
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    let selectedContact = this.allFruits.find(c=>c.id == event.option.value);
+    let selectedContact = this.allUsers.find(c=>c.id == event.option.value);
     if(selectedContact != null) {
-      this.selectedFruits = [...this.selectedFruits, selectedContact];
-      this.currentFruit.setValue('');
+      this.selectedUsers = [...this.selectedUsers, selectedContact];
+      this.currentUser.setValue('');
       event.option.deselect();
     }
   }

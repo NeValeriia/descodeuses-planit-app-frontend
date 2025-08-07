@@ -19,28 +19,28 @@
                 <div>
                     <mat-form-field class="w-60">
                         <mat-label>Membre</mat-label>
-                        <mat-chip-grid #chipGrid aria-label="Fruit selection">
-                            @for (fruit of selectedFruits; track $index) {
-                                <mat-chip-row (removed)="remove(fruit.id)">
-                                {{fruit.name}}
-                                <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
+                        <mat-chip-grid #chipGrid aria-label="User selection">
+                            @for (user of selectedUsers; track $index) {
+                                <mat-chip-row (removed)="remove(user.id)">
+                                {{user.name}}
+                                <button matChipRemove [attr.aria-label]="'remove ' + user.name">
                                     <mat-icon>cancel</mat-icon>
                                 </button>
                                 </mat-chip-row>
                             }
                         </mat-chip-grid>
                         <input
-                            name="currentFruit"
-                            placeholder="New Fruit..."
-                            #fruitInput
-                            [formControl]="currentFruit"
+                            name="currentUser"
+                            placeholder="New User..."
+                            #userInput
+                            [formControl]="currentUser"
                             [matChipInputFor]="chipGrid"
                             [matAutocomplete]="auto"
-                            (input)="onCurrentFruitChange(fruitInput.value)"
+                            (input)="onCurrentUserChange(userInput.value)"
                         />
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                            @for (fruit of filteredFruits; track fruit) {
-                                <mat-option [value]="fruit.id">{{fruit.name}}</mat-option>
+                            @for (user of filteredUsers; track user) {
+                                <mat-option [value]="user.id">{{user.name}}</mat-option>
                             }
                         </mat-autocomplete>
                     </mat-form-field>
