@@ -89,7 +89,7 @@ export class TodoDetailComponent implements OnInit {
         this.router.navigate(['/']);
       }
       );
-    }    
+    }
   }
 
   onCancel() {

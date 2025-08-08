@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(credentials).subscribe({
         next: (res) => {
           sessionStorage.setItem('authToken', res.token);
+          this.authService.isAdmin=res.role=='ROLE_ADMIN';
           this.router.navigateByUrl('');
         },
         error: (err) => console.error('Erreur de connexion', err),

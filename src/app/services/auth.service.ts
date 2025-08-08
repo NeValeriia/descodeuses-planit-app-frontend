@@ -21,6 +21,8 @@ export class AuthService {
     );
   }
 
+  isAdmin=false;
+
   logout(): void {
     sessionStorage.removeItem('authToken');
     // ... rediriger vers la page de login
