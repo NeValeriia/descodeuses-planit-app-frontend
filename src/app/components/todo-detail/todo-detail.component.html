@@ -37,6 +37,7 @@
                             [matChipInputFor]="chipGrid"
                             [matAutocomplete]="auto"
                             (input)="onCurrentUserChange(userInput.value)"
+                            
                         />
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
                             @for (user of filteredUsers; track user) {

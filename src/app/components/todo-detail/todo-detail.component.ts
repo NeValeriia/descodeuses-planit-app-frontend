@@ -101,14 +101,14 @@ export class TodoDetailComponent implements OnInit {
     return new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000).toISOString();
   }
 
-  remove(fruit: number | null): void {
-    this.selectedUsers = this.selectedUsers.filter(f => f.id !== fruit);
+  remove(user: number | null): void {
+    this.selectedUsers = this.selectedUsers.filter(u => u.id !== user);
   }
 
   onCurrentUserChange(value: string) {
     const filterValue = value.toLowerCase();
-    this.filteredUsers = this.allUsers.filter(fruit =>
-      fruit.name?.toLowerCase().includes(filterValue)
+    this.filteredUsers = this.allUsers.filter(user =>
+      user.name?.toLowerCase().includes(filterValue)
     );
   }
 
