@@ -15,8 +15,7 @@ export interface Todo {
     priority: string | null;
     //dueDate: Date | null;
     dueDate: string;
-
     description : string | null;
-
     memberIds : (number | null)[];
+    userId: number;
 }
