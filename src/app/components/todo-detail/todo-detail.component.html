@@ -22,8 +22,8 @@
                         <mat-chip-grid #chipGrid aria-label="User selection">
                             @for (user of selectedUsers; track $index) {
                                 <mat-chip-row (removed)="remove(user.id)">
-                                {{user.name}}
-                                <button matChipRemove [attr.aria-label]="'remove ' + user.name">
+                                {{user.contactnom}}
+                                <button matChipRemove [attr.aria-label]="'remove ' + user.contactnom">
                                     <mat-icon>cancel</mat-icon>
                                 </button>
                                 </mat-chip-row>
@@ -41,7 +41,7 @@
                         />
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
                             @for (user of filteredUsers; track user) {
-                                <mat-option [value]="user.id">{{user.name}}</mat-option>
+                                <mat-option [value]="user.id">{{user.contactnom}}</mat-option>
                             }
                         </mat-autocomplete>
                     </mat-form-field>

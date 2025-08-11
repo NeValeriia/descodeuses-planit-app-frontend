@@ -108,7 +108,7 @@ export class TodoDetailComponent implements OnInit {
   onCurrentUserChange(value: string) {
     const filterValue = value.toLowerCase();
     this.filteredUsers = this.allUsers.filter(user =>
-      user.name?.toLowerCase().includes(filterValue)
+      user.contactnom?.toLowerCase().includes(filterValue)
     );
   }
 

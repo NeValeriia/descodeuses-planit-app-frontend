@@ -43,7 +43,8 @@ export class TodoListComponent implements OnInit {
         priority: null,
         dueDate: '',
         description: null,
-        memberIds: []
+        memberIds: [],
+        userId:0
       };
 
       this.todoService.addTodo(todo).subscribe(data => {
