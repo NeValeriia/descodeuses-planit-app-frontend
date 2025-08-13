@@ -2,5 +2,8 @@ export interface Utilisateur {
     id : number;
     firstName : string;
     lastName : string;
-    genre : string;
+    gender : string;
+    username?: string;
+    role?: string;
+    
 }

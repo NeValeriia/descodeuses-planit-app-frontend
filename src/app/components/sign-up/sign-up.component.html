@@ -23,13 +23,13 @@
             <div id="motdepasse-container">
                 <mat-form-field>
                     <mat-label>Mot de passe</mat-label>
-                    <input matInput formControlName="motdepasse" type="text">
+                    <input matInput formControlName="password" type="text">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
                     <mat-label>Genre</mat-label>
-                    <mat-select formControlName="genre">
+                    <mat-select formControlName="gender">
                         @for (genre of listGenre; track genre.value) {
                         <mat-option [value]="genre.value">{{genre.text}}</mat-option>
                         }
