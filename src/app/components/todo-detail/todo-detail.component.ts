@@ -86,14 +86,14 @@ export class TodoDetailComponent implements OnInit {
         this.snackbar.open('Updated!', '', {duration:1000});
 
         //revenir sur la liste initiale apres sauvegarde
-        this.router.navigate(['/']);
+        this.router.navigate(['/todo-list']);
       }
       );
     }
   }
 
   onCancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/todo-list']);
   }
 
    toLocalIsoString(dateString: string): string {
